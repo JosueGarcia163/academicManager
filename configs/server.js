@@ -9,11 +9,12 @@ import authRoutes from "../src/auth/auth.routes.js"
 import apiLimiter from '../src/middlewares/validar-cant-peticiones.js'
 import userRoutes from "../src/user/user.routes.js"
 
+
 //Express realiza la solicitud a la base de datos.
 
 // Configuraciones basicas del servidor
 const middlewares = (app) => {
-    app.use(express.urlencoded({ extended: false }))
+    app.use(express.urlencoded({extended: false}))
     app.use(express.json())
     app.use(cors())// para que pueda responer
     app.use(helmet())//para cierto tipos de ataques.
@@ -21,22 +22,20 @@ const middlewares = (app) => {
     app.use(apiLimiter)
 }
 
-const routes = (app) => {
-    app.use("/academicManager/v1/auth", authRoutes)
+const routes = (app) =>{
+    app.use("/adoptionSystem/v1/auth", authRoutes)
+    app.use("/adoptionSystem/v1/user",userRoutes)
 }
 
-//definimos una funcion para conectar con la db
 const conectarDB = async () => {
     try {
-        //Esperamos la funcion de conectar con la base de datos, si se conecta la conexion sera exitosa
         await dbConnect()
 
     } catch (err) {
         console.log(`Database connection failed: ${err}`)
     }
-
-
 }
+
 //Para utilizar el metodo anterior en todo el programa o servidor
 export const initServer = () => {
     const app = express()
