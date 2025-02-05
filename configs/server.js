@@ -1,12 +1,19 @@
 'use strict'
 
+//Express es un framework para manejar rutas y servidores http
 import express from 'express'
+//cors un middleware para permitir o restringir solicitudes de otros dominios.
 import cors from 'cors'
+//middleware de seguridad para proteger la API.
 import helmet from 'helmet'
+//Middlevare para mostrar la solicitud http en consola, informacion como el estado, tiempo de respuesta, etc.
 import morgan from 'morgan'
 import { dbConnect } from './mongo.js'
+//Nos ayuda a manejar la autenticacion de usuarios.
 import authRoutes from "../src/auth/auth.routes.js"
+//middleware para limitar la cantidad de peticiones.
 import apiLimiter from '../src/middlewares/validar-cant-peticiones.js'
+//con user,routes manejamos las operaciones con los usuarios
 import userRoutes from "../src/user/user.routes.js"
 
 
@@ -23,8 +30,8 @@ const middlewares = (app) => {
 }
 
 const routes = (app) =>{
-    app.use("/adoptionSystem/v1/auth", authRoutes)
-    app.use("/adoptionSystem/v1/user",userRoutes)
+    app.use("/academicManager/v1/auth", authRoutes)
+    app.use("/academicManager/v1/user",userRoutes)
 }
 
 const conectarDB = async () => {

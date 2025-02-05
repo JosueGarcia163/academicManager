@@ -20,7 +20,7 @@ const userSchema = Schema({
 
     },
 
-    password:{
+    password: {
         type: String,
         minLength: 8,
         required: true
@@ -48,10 +48,14 @@ const userSchema = Schema({
 
     },
 
-    course: {
-        type: String,
-        required: true
-        
+    courses: { 
+        type: [String], 
+        validate: {
+            validator: function (v) {
+                return v.length <= 3; //Validacion para que sean maximo 3 cursos.
+            },
+            message: "No se puede asignar a mas de 3 cursos."
+        }
     },
 
     role: {
@@ -71,12 +75,14 @@ const userSchema = Schema({
     }
 )
 
-userSchema.methods.toJSON = function(){
-    const{ password, _id, ...user} = this.toObject()
+userSchema.methods.toJSON = function () {
+    const { password, _id, ...user } = this.toObject()
     user.uid = _id
     return user
 
 }
+
+
 
 // Exportamos el esquema para utilizarlo
 export default model("User", userSchema)
