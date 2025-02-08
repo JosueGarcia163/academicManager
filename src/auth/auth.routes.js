@@ -10,7 +10,7 @@ const router = Router()
 //Ruta, middleware, controlador
 router.post("/register", 
     uploadProfilePicture.single("profilePicture"),
-    registerValidator, 
+    registerValidator,
     register
 )
 

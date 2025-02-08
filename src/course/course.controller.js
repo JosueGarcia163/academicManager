@@ -113,7 +113,7 @@ export const updateCourse = async (req, res) => {
 
         // Actualizamos todos los datos del curso a los nuevos datos que estan en el body.
         course.name = name || course.name;
-       // course.description = description || course.description;
+        // course.description = description || course.description;
         //Guardamos los cambios.
         await course.save();
 
@@ -125,7 +125,7 @@ export const updateCourse = async (req, res) => {
     }
 };
 
-//Funcion de actualizar.
+//Funcion de eliminar.
 export const deleteCourse = async (req, res) => {
     try {
         const { courseId } = req.params;
@@ -136,8 +136,13 @@ export const deleteCourse = async (req, res) => {
             return res.status(404).json({ message: "Curso no encontrado" });
         }
 
+        //Buscamos a los estudiantes que tengan el curso a eliminamos el curso de su array
+        await User.updateMany(
+            { courses: courseId },
+            { $pull: { courses: courseId } } 
+        );
         //Aqui eliminamos el curso por id de curso.
-        await course.findByIdAndDelete(courseId);
+        await Course.findByIdAndDelete(courseId);
 
         //Enviamos un ok.
         res.status(200).json({ message: "Curso eliminado exitosamente", course });

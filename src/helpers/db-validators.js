@@ -20,6 +20,4 @@ export const userExists = async (uid = '') => {
     if (!existe) {
         throw new Error("El usuario no existe")
     }
-
-
-}
+} 

@@ -29,11 +29,8 @@ export const getUserById = async (req, res) => {
             success: false,
             message: "Error al obtener el usuario",
             error: err.message
-
         })
-
     }
-
 }
 
 export const getUsers = async (req, res) => {
@@ -50,14 +47,12 @@ export const getUsers = async (req, res) => {
             User.find(query)
                 .skip(Number(from))
                 .limit(Number(limits))
-
         ])
 
         return res.status(200).json({
             success: true,
             total,
             users
-
         })
 
     } catch (err) {
@@ -65,7 +60,6 @@ export const getUsers = async (req, res) => {
             success: false,
             message: "Error al listar los usuarios",
             error: err.message
-
         })
     }
 
@@ -81,8 +75,6 @@ export const deleteUser = async (req, res) => {
             success: true,
             message: "Usuario Eliminado",
             user
-
-
         })
     } catch (err) {
         return res.status(500).json({
@@ -92,8 +84,6 @@ export const deleteUser = async (req, res) => {
 
         })
     }
-
-
 }
 
 //Metodo para actualizar contraseña
@@ -112,7 +102,6 @@ export const updatePassword = async (req, res) => {
                 message: "La nueva contraseña no puede ser igual a la anterior"
             })
         }
-
         //Encriptamos la nueva password con hash y la guardamos en la constante
         const encryptedPassword = await hash(newPassword)
 
@@ -132,5 +121,25 @@ export const updatePassword = async (req, res) => {
 
         })
     }
+}
 
+export const updateUser = async (req, res) => {
+    try {
+        const { uid } = req.params;
+        const data = req.body;
+
+        const user = await User.findByIdAndUpdate(uid, data, { new: true });
+
+        res.status(200).json({
+            success: true,
+            msg: 'Usuario Actualizado',
+            user,
+        });
+    } catch (err) {
+        res.status(500).json({
+            success: false,
+            msg: 'Error al actualizar usuario',
+            error: err.message
+        });
+    }
 }

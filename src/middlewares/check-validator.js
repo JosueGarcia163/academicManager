@@ -59,4 +59,20 @@ export const updatePasswordValidator = [
     deleteFileOnError
 ]
 
+export const updateUserValidator = [
+    param("uid").isMongoId().withMessage("No es un ID valido"),
+    param("uid").custom(userExists),
+    body("name", "El nombre es obligatorio").not().isEmpty(),
+    body("username", "El username es obligatorio").not().isEmpty(),
+    body("email", "El correo es obligatorio").not().isEmpty(),
+    //De que sea un correo valido
+    body("email", "Ingrese un correo valido").isEmail(),
+    body("email").custom(existeEmail),
+    body("username").custom(existeUsername),
+    validarCampos,
+    deleteFileOnError
+]
+
+
+
 

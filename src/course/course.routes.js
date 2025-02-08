@@ -1,5 +1,5 @@
 import {Router} from "express";
-import { createCourse, enrollInCourse, listCourses, updateCourse } from './course.controller.js';
+import { createCourse, enrollInCourse, listCourses, updateCourse, deleteCourse } from './course.controller.js';
 import { authenticateJWT, isTeacher, isEstudent } from '../middlewares/validar-rol.js';
 
 const router = Router()
@@ -13,7 +13,10 @@ router.post('/enroll', authenticateJWT, isEstudent, enrollInCourse);
 // Ruta para poder listar siendo alumno o estudiante
 router.get('/', authenticateJWT, listCourses);
 
-//Colocamos ruta para poder editar.
+//Colocamos ruta para poder editar curso.
 router.put('/update/:courseId', authenticateJWT, isTeacher, updateCourse)
+
+//Colocamos ruta para poder eliminar curso.
+router.delete('/delete/:courseId', authenticateJWT, isTeacher, deleteCourse)
 
 export default router;
