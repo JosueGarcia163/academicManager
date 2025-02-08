@@ -48,21 +48,17 @@ const userSchema = Schema({
 
     },
 
-    courses: { 
-        type: [String], 
-        validate: {
-            validator: function (v) {
-                return v.length <= 3; //Validacion para que sean maximo 3 cursos.
-            },
-            message: "No se puede asignar a mas de 3 cursos."
-        }
-    },
-
     role: {
         type: String,
         required: true,
         enum: ["STUDENT_ROLE", "TEACHER_ROLE"]
     },
+
+    courses: {
+        type: [Schema.Types.ObjectId],
+        ref: "Course",
+        default: []
+    },    
 
     status: {
         type: Boolean,

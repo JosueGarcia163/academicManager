@@ -15,6 +15,8 @@ import authRoutes from "../src/auth/auth.routes.js"
 import apiLimiter from '../src/middlewares/validar-cant-peticiones.js'
 //con user,routes manejamos las operaciones con los usuarios
 import userRoutes from "../src/user/user.routes.js"
+//importamos la ruta para asignar los cursos
+import curseRoutes from "../src/course/course.routes.js"
 
 
 //Express realiza la solicitud a la base de datos.
@@ -32,6 +34,7 @@ const middlewares = (app) => {
 const routes = (app) =>{
     app.use("/academicManager/v1/auth", authRoutes)
     app.use("/academicManager/v1/user",userRoutes)
+    app.use("/academicManager/v1/course",curseRoutes)
 }
 
 const conectarDB = async () => {

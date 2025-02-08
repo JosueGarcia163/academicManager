@@ -1,24 +1,26 @@
 import jwt from "jsonwebtoken"
 
-export const generateJWT = (uid = "") => {
-    return new Promise ((resolve, reject) => {
-        const payload = {uid}
+
+export const generateJWT = (uid = "", role = "") => {
+    return new Promise((resolve, reject) => {
+
+        const payload = { uid, role }
 
         jwt.sign(
             payload,
             process.env.SECRET_KEY,
             {
                 //Aqui se le manda el tiempo de vida.
-                expiresIn:"1h"
+                expiresIn: "1h"
             },
             (err, token) => {
-                if(err){
+                if (err) {
 
                     reject({
                         success: false,
                         message: err.message
                     })
-                }else{
+                } else {
                     resolve({
                         success: true,
                         token
@@ -32,3 +34,4 @@ export const generateJWT = (uid = "") => {
     })
 
 }
+
