@@ -18,7 +18,7 @@ export const authenticateJWT = (req, res, next) => {
         if (err) return res.status(403).json({ message: 'Token no válido' });
 
         //Almacenamos la informacion del usuario en el request para garantizar que si se puedan acceder a los datos del usuario.
-        req.user = { id: decoded.uid, role: decoded.role };
+        req.user = { id: decoded.uid};
         next();
     });
 };
@@ -33,6 +33,20 @@ export const isTeacher = async (req, res, next) => {
     //Miramos si el usuario es un alumno le mandamos un mensaje que no tiene permisos.
     if (user.role !== 'TEACHER_ROLE') {
         return res.status(403).json({ message: 'No tienes permisos para realizar esta acción' });
+    }
+    next();
+};
+
+// Creamos un middleware que nos permita verificar que es un alumno
+export const isEstudent = async (req, res, next) => {
+    if (!req.user || !req.user.id) {
+        return res.status(403).json({ message: 'Usuario no autorizado, falta id en el token' });
+    }
+    //Buscamos al usuario mediante una promesa despues de verificarlo con jwt previamente.
+    const user = await User.findById(req.user.id);
+    //Miramos si el usuario es un alumno le mandamos un mensaje que no tiene permisos.
+    if (user.role !== 'STUDENT_ROLE') {
+        return res.status(403).json({ message: 'Solo puedes realizar esta accion siendo estudiante.' });
     }
     next();
 };

@@ -1,7 +1,6 @@
 import {Router} from "express";
 import { createCourse, enrollInCourse, listCourses, updateCourse } from './course.controller.js';
-import { authenticateJWT, isTeacher } from '../middlewares/validar-rol.js';
-import authorizeRole from "../middlewares/role-validator.js";
+import { authenticateJWT, isTeacher, isEstudent } from '../middlewares/validar-rol.js';
 
 const router = Router()
 
@@ -9,12 +8,12 @@ const router = Router()
 router.post('/create', authenticateJWT, isTeacher, createCourse);
 
 // Ruta para inscribirse a un curso (solo para estudiantes)
-router.post('/enroll', authenticateJWT, enrollInCourse);
+router.post('/enroll', authenticateJWT, isEstudent, enrollInCourse);
 
 // Ruta para poder listar siendo alumno o estudiante
 router.get('/', authenticateJWT, listCourses);
 
 //Colocamos ruta para poder editar.
-router.put('/update/:courseId', authenticateJWT, authorizeRole("TEACHER_ROLE"), updateCourse)
+router.put('/update/:courseId', authenticateJWT, isTeacher, updateCourse)
 
 export default router;

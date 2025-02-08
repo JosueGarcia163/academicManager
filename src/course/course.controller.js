@@ -111,11 +111,6 @@ export const updateCourse = async (req, res) => {
             return res.status(404).json({ message: "Curso no encontrado" });
         }
 
-        /* Verificar que el usuario sea el mismo profesor del curso
-        if (course.teacher.toString() !== req.user.id) {
-            return res.status(403).json({ message: "No tienes permisos para editar este curso" });
-        }*/
-
         // Actualizamos todos los datos del curso a los nuevos datos que estan en el body.
         course.name = name || course.name;
        // course.description = description || course.description;
@@ -127,6 +122,28 @@ export const updateCourse = async (req, res) => {
     } catch (err) {
         console.error("Error al actualizar el curso:", err);
         res.status(500).json({ message: "Error al actualizar el curso", error: err.message });
+    }
+};
+
+//Funcion de actualizar.
+export const deleteCourse = async (req, res) => {
+    try {
+        const { courseId } = req.params;
+
+        // Verificar si el curso existe
+        const course = await Course.findById(courseId);
+        if (!course) {
+            return res.status(404).json({ message: "Curso no encontrado" });
+        }
+
+        //Aqui eliminamos el curso por id de curso.
+        await course.findByIdAndDelete(courseId);
+
+        //Enviamos un ok.
+        res.status(200).json({ message: "Curso eliminado exitosamente", course });
+    } catch (err) {
+        console.error("Error al eliminar el curso:", err);
+        res.status(500).json({ message: "Error al eliminar el curso", error: err.message });
     }
 };
 
