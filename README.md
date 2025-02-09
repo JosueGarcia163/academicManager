@@ -34,7 +34,7 @@ Dentro de esta coleccion encontraras 2 carpetas una dedicada para cada crud de c
 
 
 
-- Para asignarte a un curso ve al endpoint de Asignar curso y coloca el id del curso al que deseas asignarte.
+- Para asignarte a un curso ve al endpoint de Asignar curso y coloca el id del curso en el JSON al que deseas asignarte.
 De esta manera:
 ![image](https://github.com/user-attachments/assets/93fb0cb0-3ab3-40fd-b6d9-7af00a445e89)
 
