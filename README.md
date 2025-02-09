@@ -46,6 +46,7 @@ Recuerda colocar en el Headers un token de un alumno para que te deje asignarte.
  ![image](https://github.com/user-attachments/assets/90d50baf-8bb2-4108-a0e5-066b6545b7b6)
 
 -Para eliminar dirigete al endpoint de EliminarCurso alli coloca el id del curso que desees eliminar y coloca el token de un profesor en el Headers.
+
 -De esta manera:
   ![Screenshot 2025-02-08 222802](https://github.com/user-attachments/assets/4091ffa6-c18a-4300-930d-e47fd7a7acfe)
 
