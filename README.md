@@ -21,9 +21,9 @@ Dentro de esta coleccion encontraras 2 carpetas una dedicada para cada crud de c
 - Recuerda colocar en el params el id del usuario que deseas editar o eliminar y tambien de colocar el token en el Headers.
 
   De esta manera:
-  ![image](https://github.com/user-attachments/assets/d8cfbcd9-14da-4fcc-b68c-2949f2f42df6)
+  ![image](https://github.com/user-attachments/assets/b1975278-379b-495f-bec3-bb81e8193a1b)
 
-  ![image](https://github.com/user-attachments/assets/72ebb09f-6b22-4936-9d55-6e2ab3786d2a)
+  ![image](https://github.com/user-attachments/assets/67e28227-f923-42f6-99f5-9c75e3bdbfc4)
 
 
   # Paso 2
@@ -43,4 +43,11 @@ Recuerda colocar en el Headers un token de un alumno para que te deje asignarte.
 - Para listar dirigete al endpoint de listarCurso y coloca en el Headers un token de un alumno o teacher.
 - Para editar ve a ActualizarCurso y en el body coloca el nombre que le quieras colocar, recuerda colocar el id del curso en el params y colocar el token del profesor en el Headers
   
-- ![image](https://github.com/user-attachments/assets/90d50baf-8bb2-4108-a0e5-066b6545b7b6)
+ ![image](https://github.com/user-attachments/assets/90d50baf-8bb2-4108-a0e5-066b6545b7b6)
+
+-Para eliminar dirigete al endpoint de EliminarCurso alli coloca el id del curso que desees eliminar y coloca el token de un profesor en el Headers.
+-De esta manera:
+  ![Screenshot 2025-02-08 222802](https://github.com/user-attachments/assets/4091ffa6-c18a-4300-930d-e47fd7a7acfe)
+
+
+
