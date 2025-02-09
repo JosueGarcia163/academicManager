@@ -7,8 +7,15 @@ export const createCourse = async (req, res) => {
         const { name } = req.body;
         const teacherId = req.user.id;  // Usamos el ID del profesor desde el token JWT
 
+        //Verificamos que no exista un curso llamado asi.
+        const existingCourse = await Course.findOne({ name });
+        if (existingCourse) {
+            return res.status(400).json({ message: "Ya existe un curso con este nombre" });
+        }
+
         // Buscamos un usuario por Id que sea el profesor.
         const user = await User.findById(teacherId);
+
 
         //Validacion por si no encontramos el usuario.
         if (!user) {
@@ -108,15 +115,23 @@ export const updateCourse = async (req, res) => {
         const { courseId } = req.params;
         const { name } = req.body;
 
+
         // Verificar si el curso existe
         const course = await Course.findById(courseId);
         if (!course) {
             return res.status(404).json({ message: "Curso no encontrado" });
         }
 
+        //Verificamos que no exista otro curso llamado asi.
+        if (name && name !== course.name) {
+            const existingCourse = await Course.findOne({ name });
+            if (existingCourse) {
+                return res.status(400).json({ message: "Ya existe otro curso con este nombre" });
+            }
+        }
+
         // Actualizamos todos los datos del curso a los nuevos datos que estan en el body.
         course.name = name || course.name;
-        // course.description = description || course.description;
         //Guardamos los cambios.
         await course.save();
 
@@ -142,7 +157,7 @@ export const deleteCourse = async (req, res) => {
         //Buscamos a los estudiantes que tengan el curso a eliminamos el curso de su array
         await User.updateMany(
             { courses: courseId },
-            { $pull: { courses: courseId } } 
+            { $pull: { courses: courseId } }
         );
         //Aqui eliminamos el curso por id de curso.
         await Course.findByIdAndDelete(courseId);
