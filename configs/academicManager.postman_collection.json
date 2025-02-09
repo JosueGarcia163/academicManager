@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "8121b746-3c5e-4ade-9030-85ebaeedf926",
+		"_postman_id": "ef37d379-8b45-4234-b0ed-75bd31d0b12c",
 		"name": "academicManager",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "37585552"
@@ -524,7 +524,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://127.0.0.1:3000/academicManager/v1/user/deleteUser/67a80d07a43fc9fe39228754",
+							"raw": "http://127.0.0.1:3000/academicManager/v1/user/updateUser/67a80d07a43fc9fe39228754",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -537,7 +537,7 @@
 								"academicManager",
 								"v1",
 								"user",
-								"deleteUser",
+								"updateUser",
 								"67a80d07a43fc9fe39228754"
 							]
 						}
