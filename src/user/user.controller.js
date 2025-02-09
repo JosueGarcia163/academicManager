@@ -1,6 +1,5 @@
 import User from "./user.model.js"
 import { hash, verify } from "argon2";
-import { isEstudent, isTeacher } from "../middlewares/validar-rol.js";
 
 
 export const getUserById = async (req, res) => {
@@ -71,6 +70,7 @@ export const deleteUser = async (req, res) => {
         const { uid } = req.params
         const loggedInUserId = req.user.id;
 
+        //Sencilla validacion para confirmar que el id del token sea el mismo que el id que se esta colocando en el params.
         if (uid !== loggedInUserId) {
             return res.status(403).json({
                 success: false,
@@ -102,6 +102,7 @@ export const updatePassword = async (req, res) => {
         const { newPassword } = req.body
         const loggedInUserId = req.user.id
 
+        //Sencilla validacion para confirmar que el id del token sea el mismo que el id que se esta colocando en el params.
         if (uid !== loggedInUserId) {
             return res.status(403).json({
                 success: false,
@@ -151,6 +152,7 @@ export const updateUser = async (req, res) => {
         const data = req.body;
         const loggedInUserId = req.user.id
 
+        //Sencilla validacion para confirmar que el id del token sea el mismo que el id que se esta colocando en el params.
         if (uid !== loggedInUserId) {
             return res.status(403).json({
                 success: false,

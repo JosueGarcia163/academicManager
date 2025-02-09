@@ -1,0 +1,639 @@
+{
+	"info": {
+		"_postman_id": "8121b746-3c5e-4ade-9030-85ebaeedf926",
+		"name": "academicManager",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "37585552"
+	},
+	"item": [
+		{
+			"name": "Courses",
+			"item": [
+				{
+					"name": "CrearCurso",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2E4MGM4M2E0M2ZjOWZlMzkyMjg3NDUiLCJpYXQiOjE3MzkwNjk1MDksImV4cCI6MTczOTA3MzEwOX0.3yXFNmgZA9QBON6L_Z_sFj6EdMsKZzmgkKBjGvKcbJg",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Fisica\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3000/academicManager/v1/course/create",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"academicManager",
+								"v1",
+								"course",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AsignarCurso",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2E4MWZiY2E4MTRkNmU5ODZiOTAwNjgiLCJpYXQiOjE3MzkwNzE0MzQsImV4cCI6MTczOTA3NTAzNH0.B5Yrz3dZTqdZWDyVnxY7jRUF1TLYz78y6WgCQhTnr1k",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"courseId\": \"67a81f71a814d6e986b90063\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3000/academicManager/v1/course/enroll",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"academicManager",
+								"v1",
+								"course",
+								"enroll"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ListarCurso",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2E4MGM4M2E0M2ZjOWZlMzkyMjg3NDUiLCJpYXQiOjE3MzkwNjk1MDksImV4cCI6MTczOTA3MzEwOX0.3yXFNmgZA9QBON6L_Z_sFj6EdMsKZzmgkKBjGvKcbJg",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3000/academicManager/v1/course/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"academicManager",
+								"v1",
+								"course",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "EliminarCurso",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2E4MGM4M2E0M2ZjOWZlMzkyMjg3NDUiLCJpYXQiOjE3MzkwNjk1MDksImV4cCI6MTczOTA3MzEwOX0.3yXFNmgZA9QBON6L_Z_sFj6EdMsKZzmgkKBjGvKcbJg",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3000/academicManager/v1/course/delete/67a81f71a814d6e986b90063",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"academicManager",
+								"v1",
+								"course",
+								"delete",
+								"67a81f71a814d6e986b90063"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ActualizarCurso",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2E4MGM4M2E0M2ZjOWZlMzkyMjg3NDUiLCJpYXQiOjE3MzkwNjk1MDksImV4cCI6MTczOTA3MzEwOX0.3yXFNmgZA9QBON6L_Z_sFj6EdMsKZzmgkKBjGvKcbJg",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Ingles\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3000/academicManager/v1/course/update/67a81f71a814d6e986b90063",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"academicManager",
+								"v1",
+								"course",
+								"update",
+								"67a81f71a814d6e986b90063"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "Listar",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:3000/academicManager/v1/user/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"academicManager",
+								"v1",
+								"user",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "RegisterAlumno",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Estudiante1",
+									"type": "text"
+								},
+								{
+									"key": "surname",
+									"value": "GG",
+									"type": "text"
+								},
+								{
+									"key": "username",
+									"value": "Estudiante1",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "abc12345",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "Estudiante@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "profilePicture",
+									"type": "file",
+									"src": "/C:/Users/david/OneDrive/Pictures/Screenshots/Screenshot 2025-01-31 210709.png"
+								},
+								{
+									"key": "phone",
+									"value": "45879635",
+									"type": "text"
+								},
+								{
+									"key": "role",
+									"value": "STUDENT_ROLE",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3000/academicManager/v1/auth/register",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"academicManager",
+								"v1",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "RegisterProfesor",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "PROFE1",
+									"type": "text"
+								},
+								{
+									"key": "surname",
+									"value": "GG",
+									"type": "text"
+								},
+								{
+									"key": "username",
+									"value": "Jugador1",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "abc12345",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "Profesor1@gmai.com",
+									"type": "text"
+								},
+								{
+									"key": "profilePicture",
+									"type": "file",
+									"src": "/C:/Users/david/OneDrive/Pictures/Screenshots/Screenshot 2025-01-31 210709.png"
+								},
+								{
+									"key": "phone",
+									"value": "58964715",
+									"type": "text"
+								},
+								{
+									"key": "role",
+									"value": "TEACHER_ROLE",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3000/academicManager/v1/auth/register",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"academicManager",
+								"v1",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "LoginAlumno",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"Estudiante@gmail.com\",\r\n    \"password\": \"abc12345\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3000/academicManager/v1/auth/login",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"academicManager",
+								"v1",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "LoginProfesor",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"Profesor1@gmai.com\",\r\n    \"password\": \"abc12345\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3000/academicManager/v1/auth/login",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"academicManager",
+								"v1",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "EditarUsuario",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2E4MGQwN2E0M2ZjOWZlMzkyMjg3NTQiLCJpYXQiOjE3MzkwNjY2NDQsImV4cCI6MTczOTA3MDI0NH0.wuNI0HgqIn0fKnIOYKTQWPbJs8Bol3hyyz3_kRmg-4c",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"PROFESORNUEVO\",\r\n    \"surname\": \"Simon\",\r\n    \"username\": \"NuevoProfesor\",\r\n    \"email\": \"Profesor59@gmail.com\",\r\n    \"phone\": \"47859647\",\r\n    \"role\": \"TEACHER_ROLE\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3000/academicManager/v1/user/deleteUser/67a80d07a43fc9fe39228754",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"academicManager",
+								"v1",
+								"user",
+								"deleteUser",
+								"67a80d07a43fc9fe39228754"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "EliminarUsuario",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2E4MDM3N2JmYzZkNDRmMTEyODE2YTMiLCJpYXQiOjE3MzkwNjQzNDgsImV4cCI6MTczOTA2Nzk0OH0.QDxQz47Bowwl6AsWh2YLTJVFWvKUBBO-0Xoj9mlA1cw",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3000/academicManager/v1/user/deleteUser/67a80377bfc6d44f112816a3",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"academicManager",
+								"v1",
+								"user",
+								"deleteUser",
+								"67a80377bfc6d44f112816a3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "EditarPassword",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2E4MGM4M2E0M2ZjOWZlMzkyMjg3NDUiLCJpYXQiOjE3MzkwNjY1NDksImV4cCI6MTczOTA3MDE0OX0.jSW7CMTsXdzjIVeZnlNsStyXnarP240YUTN3cPT0igc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"newPassword\": \"nuevacontra1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3000/academicManager/v1/user/updatePassword/67a80c83a43fc9fe39228745",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"academicManager",
+								"v1",
+								"user",
+								"updatePassword",
+								"67a80c83a43fc9fe39228745"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

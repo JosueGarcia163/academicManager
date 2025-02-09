@@ -52,7 +52,8 @@ export const enrollInCourse = async (req, res) => {
             return res.status(400).json({ message: 'Ya estás inscrito en este curso' });
         }
 
-        // Verificar que el estudiante no tenga más de 3 cursos asignados
+        /*Buscamos un id en la base de datos que coincida con studentId y si 
+        lo encuentra almacena el documento en la constante student*/
         const student = await User.findById(studentId);
 
 
@@ -68,11 +69,13 @@ export const enrollInCourse = async (req, res) => {
         }
 
 
-        /*Se guarda en el curso al estudiante que se asigno*/
+        /*Se agrega en el array del curso al 
+        estudiante que se asigno */
         course.students.push(studentId);
-        //Se guarda en el estudiante el curso.
+        //Se guarda en el estudiante el curso para que aparezca en la base de datos como array.
         student.courses.push(courseId);
 
+        //Guardamos los cambios en la base de datos.
         await course.save();
         await student.save();
 
